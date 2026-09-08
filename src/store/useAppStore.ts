@@ -11,7 +11,7 @@ interface AppState {
 
 export const useAppStore = create<AppState>((set) => ({
   ownerName: "Owner",
-  isAuthenticated: true,
+  isAuthenticated: false,
   activeGeraiFilter: null,
   login: () => set({ isAuthenticated: true }),
   logout: () => set({ isAuthenticated: false }),

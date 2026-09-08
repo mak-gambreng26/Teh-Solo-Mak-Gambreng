@@ -13,15 +13,38 @@ export default function LoginPage() {
   const login = useAppStore((s) => s.login);
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (code.length < 4) {
       setError("Kode akses minimal 4 digit");
       return;
     }
-    login();
-    router.push("/dashboard");
+
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code }),
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        setError(result.message ?? "Gagal masuk. Coba lagi.");
+        return;
+      }
+
+      login();
+      router.push("/dashboard");
+    } catch {
+      setError("Server tidak dapat dihubungi. Coba lagi.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -55,8 +78,8 @@ export default function LoginPage() {
             error={error}
             autoFocus
           />
-          <AppButton type="submit" size="lg">
-            Masuk
+          <AppButton type="submit" size="lg" disabled={isLoading}>
+            {isLoading ? "Memeriksa..." : "Masuk"}
           </AppButton>
         </form>
       </AppCard>
