@@ -39,7 +39,6 @@ import {
   Download,
   Camera,
   Radio,
-  ChefHat,
   type LucideIcon,
 } from "lucide-react";
 
