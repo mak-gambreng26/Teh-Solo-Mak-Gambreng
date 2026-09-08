@@ -1,3 +1,5 @@
+"use client";
+
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { BottomNavigation } from "@/components/layout/BottomNavigation";
 import { SafeArea } from "@/components/layout/SafeArea";
