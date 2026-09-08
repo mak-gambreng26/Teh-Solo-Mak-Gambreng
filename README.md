@@ -34,9 +34,7 @@ Route aplikasi sekarang dilindungi oleh `src/middleware.ts`. Pengunjung yang
 belum memiliki sesi owner akan diarahkan ke `/login`; sesi dibuat oleh endpoint
 `/api/auth/login` dan disimpan sebagai cookie `HttpOnly` yang ditandatangani.
 
-Salin `.env.example` menjadi `.env.local`, lalu isi `OWNER_ACCESS_CODE` dan
-`AUTH_SECRET` sebelum deployment. Pada development, kode fallback adalah `1234`
-agar demo tetap bisa dijalankan; fallback ini tidak aktif di production.
+Di Vercel, isi `OWNER_ACCESS_CODE` dan `AUTH_SECRET` di Project Settings → Environment Variables sebelum deployment. Pada development, kode fallback adalah `1234` agar demo tetap bisa dijalankan; fallback ini tidak aktif di production.
 
 ## Struktur folder
 
