@@ -1,3 +1,5 @@
+"use client";
+
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { SafeArea } from "@/components/layout/SafeArea";
 import { AppButton } from "@/components/ui/AppButton";
