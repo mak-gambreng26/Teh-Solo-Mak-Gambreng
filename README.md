@@ -1,225 +1,121 @@
-🍵 MAK-GAMBRENG PWA
-Spesifikasi Proyek Lengkap
-Versi Final --- 22 Mei 2026
-Daftar Isi
-Visi & Tujuan
-Struktur Sistem & Akses
-Peran Pengguna
-Alur SPG / Gerai
-Alur Checker
-Monitoring Real-time
-Dashboard Owner
-Bottom Navigation Owner
-Administrasi
-Laporan Harian Universal
-Entitas Database
-Aturan Sistem
-Data Awal
-Teknologi & Implementasi
-Kode Referensi
-1. Visi & Tujuan
-Visi
-MAK-GAMBRENG PWA adalah sistem manajemen usaha minuman teh keliling yang terintegrasi secara digital untuk memantau operasional gerai secara real-time.
-Tujuan
-Digitalisasi pencatatan penjualan, logistik, dan keuangan.
-Transparansi operasional Owner, Checker, dan SPG.
-Otomatisasi laporan harian.
-Pengendalian stok dengan audit trail lengkap.
-2. Struktur Sistem
-Role utama:
-Role      Akses
-Owner     Dashboard utama dan seluruh konfigurasi Checker   Pemeriksaan gerai, tutup gerai, restok SPG       Operasional gerai dan transaksi Publik    Pengiriman es kristal melalui QR
-Route:
-/
-/checker
-/[slug-gerai]
-/tormonitor
-/public/kirim-es/[id]
-3. Peran Pengguna
-Owner
-Hak: - Full akses sistem. - Master data. - Keuangan. - Laporan. - Backup. - Pusat Edit Data.
-Kode default:
-1234
-Kode developer:
-reset###3
-Checker
-Tugas:
-Mengecek kondisi fisik gerai.
-Validasi uang dan QRIS.
-Validasi logistik.
-Tutup gerai.
-Mengirim restok.
-Memberikan alasan jika terjadi selisih.
-SPG
-Tugas:
-Membuka gerai.
-Input modal awal.
-Melakukan transaksi.
-Request restok.
-Request es kristal.
-Melihat riwayat transaksi.
-Aturan:
-1 SPG aktif per gerai.
-Pendapatan tidak ditampilkan pada halaman SPG.
-4. Monitoring
-Monitoring adalah pusat pantau real-time.
-Karakteristik:
-Read only.
-Refresh otomatis.
-Reset setelah seluruh gerai tutup.
-Dark mode.
-Komponen:
-Omzet real-time.
-Jumlah gerai aktif.
-Cup terjual.
-Ranking menu.
-Grafik penjualan.
-Aktivitas sistem.
-5. Dashboard Owner
-11 Kartu Utama
-Gerai
-SPG Room
-Checker Area
-Tagihan Es Kristal
-Audit Log
-History Penjualan
-Arsip Transaksi
-Arsip Logistik Gerai
-Pusat Pesan
-Kelola Menu
-Daily Kitchen
-6. Bottom Navigation Owner
-Tab Keuangan
-Fungsi:
-Working Capital.
-Pemasukan.
-Pengeluaran.
-Profit.
-Grafik saldo.
-Tab Gudang
-Fungsi:
-Monitoring stok.
-History logistik.
-Tambah stok.
-Tarik logistik.
-Tab Laporan
-Fungsi:
-Laporan harian.
-Export PDF/PNG.
-Analisis usaha.
-Tab Administrasi
-Fungsi:
-Setup awal.
-Master data.
-Backup.
-Reset.
-Pusat Edit Data.
-7. Database Entity
-23 entity utama:
-Users
-Gerai
-Menu
-LogistikItem
-BukaGerai
-Transaksi
-CheckGerai
-TutupGerai
-Restok
-KitchenDaily
-Belanja
-Pembayaran
-WorkingCapital
-DailySummary
-LaporanHarian
-RankingHarian
-StokGerai
-Notifikasi
-Message
-ChatRoom
-EsKristal
-AuditLog
-LogistikHistory
-8. Aturan Sistem Utama
-Data pending tidak disimpan.
-Data valid setelah konfirmasi.
-Penjualan langsung masuk Monitoring.
-History penjualan hanya menampilkan CUP dan transaksi.
-Audit Log bersifat immutable.
-Kitchen Daily hanya milik Owner.
-Mapping logistik menu wajib tersedia.
-QR SPG tidak digunakan.
-QR Es Kristal dibuat otomatis.
-Reset monitoring dilakukan setelah operasional selesai.
-9. Data Awal
-Menu
-Teh Ekstra Rp10.000
-Teh Solo Rp10.000
-Teh Jumbo Rp12.000
-Teh Susu Rp12.000
-Teh Milo Rp12.000
-Teh Lemon Rp10.000
-Gerai
-Sunter
-Gampol
-Biru
-Bengkel
-Pasar
-18
-Walang
-Bugis
-Alur Laut
-SPG
-Tika, Salsa, Lilis, Wati, Nurul, Jovita, Jasmin, Titi, Farah
-Checker
-Rian, Mak-Elang
-Logistik
-Gula
-Air Galon
-Gas
-Plastik
-Seal Cup
-Sedotan
-Susu
-Milo
-Cup 22oz Oval
-Cup 22oz Datar
-Cup 18oz
-10. Teknologi
-Stack:
-Komponen         Teknologi
-Frontend         PWA HTML5 CSS3 JavaScript Database Lokal   IndexedDB Backend          Node.js/Firebase/Supabase QR               qrcode.js PDF              jsPDF Grafik           Chart.js Storage          LocalStorage + Cloud
-11. Workflow Implementasi
-Fase 1
-Setup dan master data.
-Fase 2
-Operasional harian:
-Kitchen Daily
-↓
-SPG buka gerai
-↓
-Penjualan
-↓
-Checker cek
-↓
-Checker tutup
-Fase 3
-Reset Monitoring
-↓
-Daily Summary
-↓
-Laporan
-↓
-Arsip
-12. Kode Referensi
-Format ID:
-TRX-YYYYMMDD-XXX
-BG-YYYYMMDD-XXX
-CG-YYYYMMDD-XXX
-TG-YYYYMMDD-XXX
-RS-YYYYMMDD-XXX
-MKGR-YYYYMMDD-XG-YC-ZK
-Brand Color
-Nama              Hex
-Hijau Brand       #008438 Hijau Muda        #F6FFF3 Kuning            #FFD700 Merah Alert       #FF4444 Dark Monitoring   #0A0A0A
-MAK-GAMBRENG PWA
-Spesifikasi Final --- 22 Mei 2026
+# 🍵 Mak-Gambreng Owner PWA
+
+Frontend-only mobile command center untuk owner bisnis minuman teh keliling
+multi-gerai. Dibangun sesuai *Master Prompt Final* — Next.js 15 App Router,
+TypeScript, Tailwind CSS, shadcn/ui-style primitives, Framer Motion, Recharts,
+Zustand, dan next-pwa.
+
+## Menjalankan proyek
+
+```bash
+npm install
+npm run dev       # http://localhost:3000
+```
+
+Build production:
+
+```bash
+npm run build
+npm run start
+```
+
+> **Catatan penting:** Repo ini dibuat di lingkungan tanpa akses internet,
+> sehingga `npm install` **belum pernah dijalankan/diverifikasi** di sini.
+> Semua kode sudah lengkap dan mengikuti API resmi tiap library (Next 15,
+> React 19, Tailwind 3, Radix, Recharts, Zustand, next-pwa), tapi jalankan
+> `npm install && npm run build` di mesin Anda (atau biarkan Vercel yang
+> menjalankannya) sebagai langkah verifikasi pertama. Kalau ada error versi
+> minor dari `next-pwa`/Next 15, langkah cepatnya: buka `next.config.js` dan
+> sesuaikan sesuai versi `next-pwa` yang ter-install.
+
+## Struktur folder
+
+```
+src/
+  app/            → semua route (App Router)
+    dashboard/    → dashboard utama owner (11 modul + hero + quick action)
+    monitoring/   → Pusat Pantau real-time (dark mode)
+    gerai/        → daftar & detail gerai
+    spg/          → SPG Room
+    checker/      → Checker Area
+    es-kristal/   → Tagihan Es Kristal
+    audit/        → Audit Log
+    history/      → History Penjualan (cup only, tanpa Rp)
+    transaksi/    → Arsip Transaksi
+    logistik/     → Arsip Logistik Gerai
+    chat/         → Pusat Pesan
+    menu/         → Kelola Menu
+    kitchen/      → Daily Kitchen
+    keuangan/     → Tab bottom bar — Cash flow
+    gudang/       → Tab bottom bar — Logistik pusat
+    laporan/      → Tab bottom bar — Laporan harian
+    admin/        → Tab bottom bar — Setup & administrasi
+    login/        → Login kode akses owner
+  components/
+    ui/           → AppButton, AppCard, AppModal, AppInput
+    layout/       → MobileHeader, BottomNavigation, SafeArea
+    cards/        → MoneyCard, StatCard, MenuCard, InventoryCard, ReportCard, ModuleCard
+    charts/       → RevenueChart, InventoryChart (Recharts)
+  config/
+    theme.ts      → semua warna/spacing/radius — tidak ada hex hardcode di komponen
+    assets.ts     → registry semua path gambar (ganti file di /public/assets, tampilan ikut berubah)
+    icons.ts      → mapping semua icon (fallback Lucide)
+  services/mock/  → mock data (siap diganti panggilan API asli)
+  store/          → Zustand store (auth/session)
+  types/          → semua TypeScript interface domain (Gerai, SPG, Transaksi, dst)
+  utils/          → formatRupiah, cn, dll
+public/
+  assets/         → semua asset visual yang bisa diganti owner tanpa edit kode
+  manifest.json   → PWA manifest
+  icons/          → app icon 192/512 (placeholder — ganti dengan logo asli)
+```
+
+## Mengganti tampilan tanpa coding
+
+Semua visual bisa diganti hanya dengan mengganti file di `public/assets/**`
+sesuai path yang terdaftar di `src/config/assets.ts` — tidak perlu menyentuh
+kode komponen sama sekali. Icon bawaan (Lucide) dipakai sebagai fallback dan
+dipetakan terpusat di `src/config/icons.ts`.
+
+## Mengganti mock data dengan API asli
+
+Setiap file di `src/services/mock/*.mock.ts` mengekspor array/object statis.
+Ganti isinya dengan pemanggilan API (fetch/axios/tRPC/dll) — bentuk data
+(interface di `src/types/index.ts`) sudah dirancang mengikuti 23 entity dari
+spesifikasi database, jadi kontrak datanya tidak perlu berubah.
+
+## PWA
+
+`next-pwa` sudah dikonfigurasi di `next.config.js` (nonaktif saat `next dev`,
+aktif saat production build). `public/manifest.json` sudah lengkap dengan
+ikon 192x192 dan 512x512 (placeholder hijau brand — ganti dengan logo asli
+di `public/icons/`).
+
+## Status implementasi vs Master Prompt
+
+| Item di checklist | Status |
+|---|---|
+| Native mobile design, safe margin semua sisi | ✅ |
+| Bottom navigation 4 tab, tanpa sidebar | ✅ |
+| 11 kartu modul dashboard owner | ✅ |
+| Semua warna lewat `theme.ts` | ✅ |
+| Semua asset lewat `assets.ts` + folder `public/assets` | ✅ |
+| Semua icon lewat `icons.ts` (fallback Lucide) | ✅ |
+| AppButton/AppCard/AppModal/AppInput reusable | ✅ |
+| Mock data service per domain, tidak hardcode di komponen | ✅ |
+| Halaman: dashboard, login, gerai (+detail), spg, checker, monitoring, es-kristal, audit, history, transaksi, logistik, chat, menu, kitchen, keuangan, gudang, laporan, admin | ✅ semua ada isi (bukan halaman kosong) |
+| PWA manifest + next-pwa + app icon | ✅ (ikon masih placeholder, ganti dengan logo asli) |
+| README, package.json, .env.example, vercel.json, .gitignore | ✅ |
+| **`npm install` & `npm run build` diverifikasi sukses** | ⚠️ **Belum** — sandbox pembuatan tidak punya akses internet. Kode sudah lengkap & konsisten, tapi jalankan build di mesin Anda / biarkan Vercel yang build sebagai verifikasi pertama. |
+| Splash screen, install prompt custom, service worker kustom | ⚠️ next-pwa men-generate service worker default saat build; splash screen & install-prompt UI kustom belum dibuat — bisa ditambahkan di iterasi berikutnya |
+| Auth guard (redirect ke /login jika belum login) middleware | ⚠️ Store `useAppStore` sudah ada (`isAuthenticated`), tapi route guard middleware belum dipasang — saat ini semua halaman bisa diakses langsung |
+| Form-form detail (Buka Gerai, Tutup Gerai, Cek Gerai, Restok, dsb sebagai form penuh dengan validasi Zod) | ⚠️ Halaman-halaman utama (Owner) sudah lengkap; form operasional detail checker/SPG (di luar scope "Owner App") belum dibuat — sesuai master prompt yang fokus ke **Owner PWA** |
+
+## Yang masih tersisa / rekomendasi lanjutan
+
+1. **Jalankan `npm install && npm run build`** di mesin dengan akses internet untuk memverifikasi tidak ada error dependency (terutama kombinasi Next 15 + next-pwa + React 19 — beberapa plugin PWA komunitas masih menyusul dukungan React 19, jika ada konflik versi, opsi: turunkan ke `next-pwa@5.6.0` peer-dep longgar atau ganti ke `@ducanh2912/next-pwa` yang lebih aktif dipelihara untuk App Router).
+2. Ganti seluruh placeholder di `public/assets/**` dan `public/icons/**` dengan aset brand asli.
+3. Tambahkan middleware auth guard (`src/middleware.ts`) agar route selain `/login` mengecek sesi.
+4. Sambungkan `src/services/mock/*` ke backend asli (Firebase/Supabase sesuai spesifikasi awal).
+5. Tambahkan splash screen & custom install-prompt UI untuk pengalaman PWA yang lebih native.
+6. Form input penuh (Zod + React Hook Form) untuk alur operasional: Buka Gerai, Cek Gerai, Tutup Gerai, Restok — saat ini modul-modul tersebut sudah punya halaman tampilan data, namun form create/edit detail belum semuanya diimplementasikan.
