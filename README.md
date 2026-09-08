@@ -113,7 +113,7 @@ di `public/icons/`).
 | Mock data service per domain, tidak hardcode di komponen | ✅ |
 | Halaman: dashboard, login, gerai (+detail), spg, checker, monitoring, es-kristal, audit, history, transaksi, logistik, chat, menu, kitchen, keuangan, gudang, laporan, admin | ✅ semua ada isi (bukan halaman kosong) |
 | PWA manifest + next-pwa + app icon | ✅ (ikon masih placeholder, ganti dengan logo asli) |
-| README, package.json, .env.example, vercel.json, .gitignore | ✅ |
+| README, package.json, vercel.json, .gitignore | ✅ |
 | **`npm install` & `npm run build` diverifikasi sukses** | ⚠️ **Belum** — sandbox pembuatan tidak punya akses internet. Kode sudah lengkap & konsisten, tapi jalankan build di mesin Anda / biarkan Vercel yang build sebagai verifikasi pertama. |
 | Splash screen, install prompt custom, service worker kustom | ⚠️ next-pwa men-generate service worker default saat build; splash screen & install-prompt UI kustom belum dibuat — bisa ditambahkan di iterasi berikutnya |
 | Auth guard (redirect ke /login jika belum login) middleware | ⚠️ Store `useAppStore` sudah ada (`isAuthenticated`), tapi route guard middleware belum dipasang — saat ini semua halaman bisa diakses langsung |
